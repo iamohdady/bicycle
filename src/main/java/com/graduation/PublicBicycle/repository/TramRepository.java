@@ -12,4 +12,7 @@ public interface TramRepository extends JpaRepository<Tram, Integer> {
     @Query("SELECT t FROM Tram t WHERE t.diadiemtram LIKE %:keyword%")
     List<Tram> findByLocationContainingKeyword(@Param("keyword") String keyword);
 
+    @Query("SELECT t FROM Tram t WHERE t.matram = :matram")
+    Tram findByTram(@Param("matram") String matram);
+
 }

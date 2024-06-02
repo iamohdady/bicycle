@@ -17,7 +17,7 @@ public class DonDat {
     private Users maUser;
 
     private int soluongdd;
-    private String trangthaidd;
+    private boolean trangthaidd;
     private Integer sotien;
 
 

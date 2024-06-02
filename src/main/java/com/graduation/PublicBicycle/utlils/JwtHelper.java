@@ -24,7 +24,6 @@ public class JwtHelper {
         Date now = new Date();
         Date expiryDate = new Date(now.getTime() + expiredTime);
 
-        // Tạo đối tượng Claims và bổ sung thông tin username và role
         Claims claims = Jwts.claims().setSubject(username);
         claims.put("role", role);
 
@@ -46,7 +45,6 @@ public class JwtHelper {
         String username = claimsJws.getBody().getSubject();
         String role = (String) claimsJws.getBody().get("role");
 
-        // Trả về username và role
         return "Username: " + username + ", Role: " + role;
     }
 }

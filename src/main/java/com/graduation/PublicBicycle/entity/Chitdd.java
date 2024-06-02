@@ -15,20 +15,27 @@ public class Chitdd {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "madondat")
-    private String madondat;
+    @ManyToOne
+    @JoinColumn(name = "madondat")
+    private DonDat madondat;
 
     private LocalDateTime ngaygiomuon;
 
     private LocalDateTime ngaygiotra;
 
-    @Column(name = "trammuon")
-    private String trammuon;
+    @ManyToOne
+    @JoinColumn(name = "trammuon")
+    private Tram trammuon;
 
-    @Column(name = "tramtra")
-    private String tramtra;
+    @ManyToOne
+    @JoinColumn(name = "tramtra")
+    private Tram tramtra;
 
-    @Column(name = "imeixe")
-    private String imeixe;
+    @ManyToOne
+    @JoinColumn(name = "imeixe")
+    private XeDap imeixe;
 
+    private double thanhtoan;
+
+    private boolean trangthai;
 }

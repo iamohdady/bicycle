@@ -1,17 +1,18 @@
 package com.graduation.PublicBicycle.dto;
 
 import com.graduation.PublicBicycle.entity.Users;
-import jakarta.persistence.*;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
+
+import java.util.List;
 
 @Data
 public class DonDatDTO {
     private String madondat;
-    private Users maUser;
+    private UserDTO maUser;
     private int soluongdd;
-    private String trangthaidd;
+    private boolean trangthaidd;
     private Integer sotien;
+    private List<ChitddDTO> chitdds;
 
 
 }

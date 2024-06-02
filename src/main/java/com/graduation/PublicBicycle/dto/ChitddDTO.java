@@ -1,28 +1,29 @@
 package com.graduation.PublicBicycle.dto;
 
+import com.graduation.PublicBicycle.entity.DonDat;
+import com.graduation.PublicBicycle.entity.Tram;
+import com.graduation.PublicBicycle.entity.XeDap;
 import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
 
-@Table(name = "chitdd")
 @Data
 public class ChitddDTO {
 
-        @Column(name = "madondat")
-        private String madondat;
+        private DonDat madondat;
 
         private LocalDateTime ngaygiomuon;
 
         private LocalDateTime ngaygiotra;
 
-        @Column(name = "diadiemtram")
-        private String trammuon;
+        private Tram trammuon;
 
-        @Column(name = "diadiemtram")
-        private String tramtra;
+        private Tram tramtra;
 
-        @Column(name = "imeixe")
-        private String imeixe;
+        private XeDap imeixe;
 
+        private double thanhtoan;
+
+        private boolean trangthai;
 }

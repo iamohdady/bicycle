@@ -6,6 +6,8 @@ import lombok.Data;
 public class TramDTO {
     private String matram;
     private String tentram;
+    private double latitude;
+    private double longitude;
     private String diadiemtram;
     private int soluong;
 }

@@ -47,6 +47,7 @@ public class SecurityConfig {
                 .requestMatchers("/login/**").permitAll()
                 .requestMatchers("/tram/**").permitAll()
                 .requestMatchers("/user/**").permitAll()
+            .requestMatchers("/dondat/**").permitAll()
                 .anyRequest().authenticated()
                 .and() /*.httpBasic()*/
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)

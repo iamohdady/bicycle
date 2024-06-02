@@ -43,7 +43,7 @@ public class LoginController {
 
         String token = jwtHelper.generateToken(request.getUsername(), role);
         TokenResponse tokenResponse = new TokenResponse();
-        tokenResponse.setResult(token);
+        tokenResponse.setAccessToken(token);
 
         return new ResponseEntity<>(tokenResponse, HttpStatus.OK);
     }

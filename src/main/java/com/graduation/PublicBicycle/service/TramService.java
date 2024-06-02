@@ -15,7 +15,6 @@ public class TramService {
     @Autowired
     private TramRepository tramRepository;
 
-    //show all Trams
     public List<TramDTO> getAllTrams(){
         List<Tram> listTram = tramRepository.findAll();
         List<TramDTO> listTramDTO = new ArrayList<>();
@@ -38,5 +37,50 @@ public class TramService {
 
         return tramDTOs;
     }
+
+    public TramDTO getDetailTram(String matram) {
+        Tram tram = tramRepository.findByTram(matram);
+        if (tram != null) {
+            TramDTO tramDTO = new TramDTO();
+            BeanUtils.copyProperties(tram, tramDTO);
+            return tramDTO;
+        }
+        return null;
+    }
+
+    public TramDTO addTram(TramDTO tramDTO) {
+        Tram exist = tramRepository.findByTram(tramDTO.getMatram());
+        if (exist != null) {
+            return null;
+        }
+        Tram tram = new Tram();
+        BeanUtils.copyProperties(tramDTO, tram);
+        Tram saved = tramRepository.save(tram);
+        TramDTO savedDTO = new TramDTO();
+        BeanUtils.copyProperties(saved, savedDTO);
+        return savedDTO;
+    }
+
+    public TramDTO updateTram(String matram, TramDTO tramDTO) {
+        Tram tram = tramRepository.findByTram(matram);
+        if (tram == null) {
+            return null;
+        }
+        BeanUtils.copyProperties(tramDTO, tram);
+        Tram updated = tramRepository.save(tram);
+        TramDTO updatedDTO = new TramDTO();
+        BeanUtils.copyProperties(updated, updatedDTO);
+        return updatedDTO;
+    }
+
+    public void deleteTram(String matram) {
+        Tram tram = tramRepository.findByTram(matram);
+        if (tram != null) {
+            tramRepository.delete(tram);
+        } else {
+            throw new RuntimeException("Tram with ID " + matram + " does not exist.");
+        }
+    }
+
 
 }

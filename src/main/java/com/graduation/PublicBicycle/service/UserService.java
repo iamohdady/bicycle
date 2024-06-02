@@ -1,23 +1,18 @@
 package com.graduation.PublicBicycle.service;
 
-import com.graduation.PublicBicycle.dto.TramDTO;
 import com.graduation.PublicBicycle.dto.UserDTO;
-import com.graduation.PublicBicycle.entity.Tram;
 import com.graduation.PublicBicycle.entity.Users;
 import com.graduation.PublicBicycle.repository.UserRepository;
-import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.io.Encoders;
-import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.crypto.SecretKey;
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class UserService {
+
     @Autowired
     private UserRepository userRepository;
 
@@ -45,5 +40,15 @@ public class UserService {
         return userDTOS;
     }
 
+    public UserDTO findMemberWithCustomerByUsername(String username) {
+        System.out.println("username: " + username);
+        Users users = userRepository.findMemberWithCustomerByUsername(username);
+        if (users != null) {
+            UserDTO userDTO = new UserDTO();
+            BeanUtils.copyProperties(users, userDTO);
+            return userDTO;
+        }
+        return null;
+    }
 
 }
