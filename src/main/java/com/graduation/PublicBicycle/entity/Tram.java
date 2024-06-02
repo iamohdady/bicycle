@@ -2,8 +2,12 @@ package com.graduation.PublicBicycle.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.Data;
 
 @Entity
+@Table(name = "tram")
+@Data
 public class Tram {
     @Id
     private String matram;
@@ -11,35 +15,6 @@ public class Tram {
     private String diadiemtram;
     private int soluong;
 
-    public String getMatram() {
-        return matram;
-    }
 
-    public void setMatram(String matram) {
-        this.matram = matram;
-    }
 
-    public String getTentram() {
-        return tentram;
-    }
-
-    public void setTentram(String tentram) {
-        this.tentram = tentram;
-    }
-
-    public String getDiadiemtram() {
-        return diadiemtram;
-    }
-
-    public void setDiadiemtram(String diadiemtram) {
-        this.diadiemtram = diadiemtram;
-    }
-
-    public int getSoluong() {
-        return soluong;
-    }
-
-    public void setSoluong(int soluong) {
-        this.soluong = soluong;
-    }
 }
