@@ -2,6 +2,7 @@ package com.graduation.PublicBicycle.controller;
 
 import com.graduation.PublicBicycle.request.LoginRequest;
 import com.graduation.PublicBicycle.response.TokenResponse;
+import com.graduation.PublicBicycle.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +24,8 @@ public class LoginController {
 
     @Autowired
     private AuthenticationManager authenticationManager;
+    @Autowired
+    private UserService service;
 
     @Autowired
     private com.graduation.PublicBicycle.utlils.JwtHelper jwtHelper;
